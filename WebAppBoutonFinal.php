@@ -118,7 +118,7 @@ input[disabled] {
 </head>
 
 <?php
-setcookie("QUALITY","80", time()+699999); // 30 jours de validité
+setcookie("QUALITY","80", time()+699999); // 30 jours de validitÃ©
 require __DIR__.'/vendor/autoload.php';
 use Spipu\Html2Pdf\Html2Pdf;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
@@ -131,7 +131,7 @@ $pdo= new PDO($mysql_server,$mysql_user,$mysql_pass);
 
 if ( $_POST['vehicule_id'] != '-' )
 	{	
-	setcookie("VEHICULE_ID", $_POST['vehicule_id'], time()+699999); // 30 jours de validité
+	setcookie("VEHICULE_ID", $_POST['vehicule_id'], time()+699999); // 30 jours de validitÃ©
 	$_COOKIE['VEHICULE_ID']=$_POST['vehicule_id'];
 	}
 
@@ -142,7 +142,7 @@ if ( $_POST['immatriculation'] != '-' && $_POST['immatriculation'] != '')
 	//$stm=$pdo->query($sql); 
 	//$row=$stm->fetch(); 
 	file_put_contents($logfilew,$sql."\r\n",FILE_APPEND);
-	setcookie("VEHICULE_ID", $id[1], time()+699999); // 30 jours de validité
+	setcookie("VEHICULE_ID", $id[1], time()+699999); // 30 jours de validitÃ©
 	$_COOKIE['VEHICULE_ID']=$id[1];
 	}
 
@@ -158,8 +158,8 @@ if ( $_POST['connecter'] == 'Connecter' )
 		{
 		$token=passgen2(30);
 		//echo "set : ".$value;
-		//setcookie("CAPVO_TOKEN", $token, time()+2592000); // 30 jours de validité
-		setcookie("CAPVO_TOKEN", $token, time()+699999); // 30 jours de validité
+		//setcookie("CAPVO_TOKEN", $token, time()+2592000); // 30 jours de validitÃ©
+		setcookie("CAPVO_TOKEN", $token, time()+699999); // 30 jours de validitÃ©
 		setcookie("USER_PROFILE", 'VENDEUR', time()+699999);
 		$_COOKIE['CAPVO_TOKEN']=$token;
 		$_COOKIE['USER_PROFILE']='VENDEUR';
@@ -178,7 +178,7 @@ if ( $_POST['connecter'] == 'Connecter' )
 		if ( $row[0] != '' )
 			{
 			$token=passgen2(30);
-			setcookie("CAPVO_TOKEN", $token, time()+699999); // 30 jours de validité
+			setcookie("CAPVO_TOKEN", $token, time()+699999); // 30 jours de validitÃ©
 			setcookie("USER_PROFILE", 'MARCHAND', time()+699999);
 			setcookie("CAPVO_ID", $row[1], time()+699999);
 		 
@@ -193,7 +193,7 @@ if ( $_POST['connecter'] == 'Connecter' )
 		}	
 	}
 	
-//echo "QUAL :" .$_COOKIE['QUALITY']; // 30 jours de validité
+//echo "QUAL :" .$_COOKIE['QUALITY']; // 30 jours de validitÃ©
 ?>
 <script>
 var mygrid_price, couverture_id;
@@ -379,7 +379,7 @@ function getCookie(cname) {
     return "";
 }
 
-// NB Image à charger au minimum //
+// NB Image Ã  charger au minimum //
 var active_button=2;
 var active_variable=1;
 
@@ -502,7 +502,7 @@ function transferComplete(evt) {
 		{
 		document.getElementById("Soumettre").disabled = false;
 		}	
-    //alert("Le transfert est terminé.");
+    //alert("Le transfert est terminÃ©.");
 }
 
 function errorTransfert(evt) {
@@ -698,7 +698,7 @@ $(document).ready(function()
 		
 	};
 	
-	//fonction d'affichage des images et camoufles celle déjà affichée
+	//fonction d'affichage des images et camoufles celle dÃ©jÃ  affichÃ©e
 	function update_preview(event) {
 		var input_id = event.target.id;
 		var preview_div = $("tr.block_" + input_id + " div.Previsualisation");
@@ -720,7 +720,7 @@ $(document).ready(function()
 		//affiche "Fermer la photot sur le bouton"
 		bouton_info.html("-");
 
-		//affiche la div pour l"image a chargé		
+		//affiche la div pour l"image a chargÃ©		
 		preview_div.css("display", "block");
 		
 		//affichel"image
@@ -732,9 +732,9 @@ $(document).ready(function()
 			preview_div.addClass("Loaded").removeClass("NotLoaded");		
 		};
 		
-		//cache le chargement terminée au bout de 3s
+		//cache le chargement terminÃ©e au bout de 3s
 		window.setTimeout(function(){
-			message_div.css("display","none");
+			message_div.html("");
         }, 1250);
 			
 	};	
@@ -743,7 +743,7 @@ $(document).ready(function()
     $('tr.block-image-field input.image-input').change(update_preview);
 	$('tr.block-image-field input.show-next').change(show_next);
 
-	//fonction sur clic bouton pour revoir la photo chargée
+	//fonction sur clic bouton pour revoir la photo chargÃ©e
 	function replay_photo(event){
 		
 		//id du bouton
@@ -752,7 +752,7 @@ $(document).ready(function()
 		//id de la div a afficher
 		var div_image = $("tr.block_photo_" + button_id + " div.Previsualisation");
 		
-		//vérifie si la div est affichée
+		//vÃ©rifie si la div est affichÃ©e
 		if((div_image.css("display") == "none") && (div_image.hasClass("Loaded"))){
 					
 			//affiche l"image
@@ -1504,7 +1504,7 @@ while (($row = $stm->fetch()) !== false)
 		}	
 
 if ( $token == "") 
-	{ // il faut regénérer un token
+	{ // il faut regÃ©nÃ©rer un token
 	$curl = curl_init();
 $headers = array(
     'Username: ws.cobredia.fr',
@@ -1575,8 +1575,8 @@ file_put_contents($logfilew,$sql."\r\n",FILE_APPEND);
 function loadCotation($pdo)
 {
 require("../config.php");
-// Création de la demande de cotation
-// Update des infos : les images ont été préchargé en javascripts
+// CrÃ©ation de la demande de cotation
+// Update des infos : les images ont Ã©tÃ© prÃ©chargÃ© en javascripts
 //
 
 $sqlm="select motorisation_id from motorisation_vehicule where motorisation_nom='".isNullM($_POST['motorisation'])."'";
@@ -1672,7 +1672,7 @@ $offreautobiz=($prixreprise-$frais_calc);
 if ($offreautobiz < 100 ) { $offreautobiz =100; }
 
 // calcul du nombre de mois et des 
-// supression du décalage de mois dans mreprise
+// supression du dÃ©calage de mois dans mreprise
 $mreprise=(($offreautobiz*0.5)/100);
 $mreprise=$mreprise*$rowm[0];
 
@@ -1714,7 +1714,7 @@ $stm=$pdo->query($sql) ;
 $row = $stm->fetch();
 file_put_contents($logfilew,$sql."\r\n",FILE_APPEND);
 $date=date('d/m/y');
-// Création de l'offre sous forme HTML	
+// CrÃ©ation de l'offre sous forme HTML	
 $html="
 <page backcolor='#FEFEFE' footer='date;heure;page' style='font-size: 12pt'>
 <table height='3000' width='1000' border='0' cellspan='0' cellspacing='0'>
@@ -1967,14 +1967,14 @@ return ($str);
 function newCotation ($pdo)
 {
 require("../config.php");
-// récupération des infos du vendeur, nom, prenom concession	
+// rÃ©cupÃ©ration des infos du vendeur, nom, prenom concession	
 $sql="select vendeur_nom, vendeur_prenom, concession_id,vendeur_id from vendeurs where token_id = '".$_COOKIE['CAPVO_TOKEN']."' and vendeur_statut !='parti' ;";
 
 $stm=$pdo->query($sql) ; 
 $row = $stm->fetch();	
 file_put_contents($logfilew,$_COOKIE['CAPVO_TOKEN']." : " .$sql."\r\n",FILE_APPEND);
 
-// création du véhicule en base
+// crÃ©ation du vÃ©hicule en base
 $app='w';
 //echo "V:". $_COOKIE['CAPVO_WEBAPP_VERSION'];
 if ( $_COOKIE['CAPVO_WEBAPP_VERSION'] != '') { $app='w1'; }
@@ -1983,7 +1983,7 @@ $sql1="insert into vehicule_couverts (concession_id,coteur_id,vendeur_id,statut_
 $pdo->query($sql1); 
 file_put_contents($logfilew,$_COOKIE['WEBAPP_CAPVO_VERSION']." : " .$sql1."\r\n",FILE_APPEND);
 
-// récupération de l'id véhicule 
+// rÃ©cupÃ©ration de l'id vÃ©hicule 
 $sql2="select max(vehicule_id) from  vehicule_couverts where concession_id='".$row[2]."' and vendeur_id='".$row[3]."' ;";
 $stm2=$pdo->query($sql2) ; 
 $row2 = $stm2->fetch(); 
